@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Website</title>
+   <style>
+    html {
+        background: linear-gradient(to bottom,#4f4d4d  0%, #b490df 100%)
+      
+
+}
+
+body {
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+    
+}
+
+section {
+    min-height: 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    
+}
+
+* {
+    box-sizing:border-box;
+    
+}
+
+.row{
+    background-color: rgba(256, 256, 256, 0.2);
+}
+
+
+#frlink{
+    color: rgb(229, 10, 10);
+}
+a:link{
+    text-decoration: none;
+}
+ul {
+    background-color: rgba(256, 256, 256, 0.4);
+    padding: 50px;
+}
+ul li {
+    background-color: rgba(256, 256, 256, 0.6);
+    color: rgb(255, 14, 14);
+    padding: 5px;
+    margin: 5px;
+}
+
+
+
+button {
+    margin: 5px 5px 5px 5px;
+    background-color: rgb(46, 170, 211);
+    color: rgb(0, 0, 0);
+    border-end-end-radius: 10px;
+    border-radius: 10%;
+    border-color: rgb(255, 5, 5);
+    border-width: 3px;
+    background-color: rgba(256, 256, 256, 0.5);
+}
+
+center {
+    color: rgb(2, 0, 0);
+    font-family:fantasy;
+    font-size:larger;
+    font-weight: bolder;
+}
+
+
+
+
+.row:after {
+    content: "";
+    display: table;
+    clear:right;
+}
+
+footer {
+    height: 40px;
+    text-align: center;
+    background-color: rgba(256, 256, 256, 0.2);
+}
+
+#mainheading{
+    background-color: rgba(256, 256, 256, 0.6);
+   border-block-color:initial;
+}
+
+   </style>
+</head>
+
+
+<body onload="RenderList(null,null)">
+
+    <!--main central body-->
+    <section>
+        <br>
+            <center id="mainheading">
+                <u><h1>AI-based lawyer business S/W.</h1></u>
+            </center>
+
+           
+            <div class="row" id="row">
+                <b><div class="column" id="col1">
+                    
+                    <br>
+                    <center><button onclick="displayFR()"><b>Functional Requirements</b></button><br></center>
+                <div id="f-list">
+                    <div id="root">
+                    </div>
+                    <br>
+
+                </div>
+
+            </div>
+            <div class="column" id="col2">
+                <br>
+                <center><button onclick="displayNFR()"><b>Non Functional Requirements</b></button><br></center>
+
+                <div id="nf-list">
+                    <div id="root1">
+                    </div>
+                </div>
+            </div>
+            </b>
+         
+                <h4>Enter No. of hours: <input type="number" id="input"><br><br>
+                    <button id="rate_btn" onclick="display_rate()">Display Rate</button>
+                    <center>
+                    <p>
+                        <b>Rate is: </b>
+                        <span id="rate">____</span>
+                    </p>
+                </center> 
+
+            </div>
+    </section>
+    <br><button onclick="RenderList(null,null)"><b>Shuffle Requirements</b></button><br>
+    &nbsp;&nbsp;
+    <br><button onclick="sortList()"><b>Sort Requirements</b></button><br>
+
+
+
+    <!--Footer-->
+    <footer>
+        <p>
+            &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;<i class="material-icons" style="font-size:20px;color:red">GMAIL:</i> 
+            <a href="https:saraqayum20@gmail.com" ></a>  saraqayum20@gmail.com </a> &nbsp; &nbsp;
+            <br>
+        
+            <i class="material-icons" style="font-size:20px;color:red">DISCORD:</i> &nbsp;
+            <i class="fab fa-discord" style="font: size 19px;color:rgb(1, 0, 0)">sara.qayyum#5553</i>
+        </p>
+
+    </footer>
+
+<script>
+    
+    function displayFR() {
+    var x = document.getElementById("f-list");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+}
+
+function displayNFR() {
+    var x = document.getElementById("nf-list");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+    
+}
+
+function display_rate() {
+    var hours = document.getElementById("input").value;
+    document.getElementById("rate").innerText = (hours*4)+"$";
+    
+}
+
+
+function RenderList(frP,nfrP){
+
+let fr,nfr;
+if(frP!=null&&nfrP!=null){
+fr=frP;
+nfr=nfrP;
+}
+
+if(frP==null){
+    fr=[ "Decision making","Problem solving","Perception","Understanding human communication (in any language)","Translating any language accordingl",
+    "Studies on the behavior of an organism in a hostile environment","AI Technique for Information Retrieval",
+    "Automatic knowledge acquisition tool","Memory-based hypothesis formation","Automatic verification","Automatic validation","Social structures and the problem of coordination in intelligent agent societies",
+    "System for heuristic retrieval of information and fact","Reporting Requirements","Legal or Regulatory Requirements","Transaction corrections","adjustments and cancellations","Legal or Regulatory Requirements","A model of law enforcement activities",
+    "A module to estimate numerical values of hidden variables for expert systems","Implications of AI for Information Retrieval"
+   ]
+    shuffle(fr)
+}
+if(nfrP==null){
+    nfr = [ "proofreading Documents","Error correction","Document organization","Legal document analysis",
+     "Contract analysis","search through and identify  potentially relevant data of all forms and file types","conduct legal research",
+     "includes talking to clients Exploring and explaining strategies","Keeping clients better informed at every stage of the legal process","human-specific work of legal representation","Document review","proofreading","Reliability","Usability","Availability","Capacity","Recoverability","Maintainability,Serviceability"
+ ]
+   
+    shuffle(nfr)
+}
+
+
+function sortList(){
+
+let nfr = [ "proofreading Documents","Error correction","Document organization","Legal document analysis",
+ "Contract analysis","search through and identify  potentially relevant data of all forms and file types","conduct legal research",
+ "includes talking to clients Exploring and explaining strategies","Keeping clients better informed at every stage of the legal process","human-specific work of legal representation","Document review","proofreading","Reliability","Usability","Availability","Capacity","Recoverability","Maintainability,Serviceability"
+]
+
+let fr = [
+"Decision making","Problem solving","Perception","Understanding human communication (in any language)","Translating any language accordingl",
+"Studies on the behavior of an organism in a hostile environment","AI Technique for Information Retrieval",
+"Automatic knowledge acquisition tool","Memory-based hypothesis formation","Automatic verification","Automatic validation","Social structures and the problem of coordination in intelligent agent societies",
+"System for heuristic retrieval of information and fact","Reporting Requirements","Legal or Regulatory Requirements","Transaction corrections","adjustments and cancellations","Legal or Regulatory Requirements","A model of law enforcement activities",
+"A module to estimate numerical values of hidden variables for expert systems","Implications of AI for Information Retrieval"
+]
+
+fr.sort();
+nfr.sort();
+
+RenderList(fr,nfr)
+
+}
+
+
+    const rootdivforFR = document.getElementById("root")
+    const rootdivforNFR = document.getElementById("root1")
+
+    rootdivforNFR.innerHTML = "<ul id='nfrlist'></ul>";
+    rootdivforFR.innerHTML = "<ul id='frlist'></ul>";
+
+    for (let i = 0; i < nfr.length; i++) {
+        // rootdivforNFR.innerHTML += "<li>" + nfr[i] + "</li>"
+        document.getElementById("nfrlist").innerHTML+="<li>"+"<a href='javascript://' id='nfrlink' onclick='alertMe(this)'>" + nfr[i] + "</a></li>";
+    }
+
+    for (let i = 0; i < fr.length; i++) {
+        document.getElementById("frlist").innerHTML+="<li>"+"<a href='javascript://' id='frlink' onclick='alertMe(this)'>" + fr[i] + "</a></li>";
+        
+    }
+
+        var ul = document.getElementById("nfrlist");
+        var items = ul.getElementsByTagName("li");
+        for (var i = 0; i < items.length; ++i) {
+            if (items[i].checked = true){
+               items[i].style.color = "blue";
+             };
+        };
+
+        var ul = document.getElementById("frlist");
+        var items = ul.getElementsByTagName("li");
+        var links = items.getElementsByTagName("a");
+        for (var i = 0; i < items.length; ++i) {
+            if (items[i].checked = true){
+               items[i].style.color = "red";
+               links[i].style.color="red";
+             };
+        };
+        
+
+
+
+
+}
+
+function shuffle(array){
+
+    let currentIndex = array.length,  randomIndex;
+
+    while (currentIndex != 0) {
+
+        // Pick a remaining element.
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex--;
+        console.log(Math.random);
+    
+        // And swap it with the current element.
+        [array[currentIndex], array[randomIndex]] = [
+          array[randomIndex], array[currentIndex]];
+      }
+      return array;
+}
+
+
+
+function alertMe(element) {
+    var count=element.innerText.length
+    alert("Characters in this requirement are : "+count)
+    alert.titl
+}
+</script>
+
+</body>
+
+</html>
